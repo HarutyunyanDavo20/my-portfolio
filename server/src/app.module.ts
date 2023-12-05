@@ -1,10 +1,35 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { PortfolioModule } from './app/portfolio/portfolio.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+      isGlobal: true,
+    }),
+    SequelizeModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (cfg: ConfigService) => ({
+        dialect: cfg.get('DB_DIALECT'),
+        host: cfg.get('DB_HOST'),
+        port: Number(cfg.get('DB_PORT')),
+        username: cfg.get('DB_USER'),
+        password: cfg.get('DB_PASSWORD'),
+        database: cfg.get('DB_NAME'),
+        models: [],
+        autoLoadModels: true,
+        define: { timestamps: false, collate: 'utf8mb4_general_ci' },
+        timezone: '+06:00',
+        logging: cfg.get('DB_LOGGING') === 'true',
+      })
+    }),
+    PortfolioModule,
+    AdminModule,
+  ],
+  controllers: [],
+  providers: [],
 })
-export class AppModule {}
+export class AppModule { }
