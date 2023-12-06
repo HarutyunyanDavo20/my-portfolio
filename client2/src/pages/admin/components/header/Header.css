@@ -1,0 +1,89 @@
+.admin__header_title {
+  text-align: center;
+  padding: 15px 0;
+}
+.admin__edit_labels_components {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 25px;
+}
+.admin__edit_labels_component {
+  display: flex;
+  gap: 25px;
+}
+.admin__edit_labels_component_title {
+  font-size: 25px;
+}
+.admin__edit_labels_component_input {
+  font-size: 20px;
+  text-align: center;
+  border-radius: 8px;
+  transition: 0.4s;
+}
+.admin__edit_labels_component_input:focus {
+  box-shadow: 0 0 7px 2px rgba(0, 255, 242, 0.685);
+}
+
+.admin__skills {
+  border: 1px solid rgba(169, 224, 19, 0.603);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.admin__skills_title {
+  text-align: center;
+}
+.admin__skill {
+  background: rgba(224, 159, 19, 0.336);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: wheat;
+}
+.admin__skill_branches {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+.admin__skill_branch {
+  display: flex;
+  gap: 15px;
+}
+.admin__skill_branch_input {
+  width: 250px;
+  height: 40px;
+  text-align: center;
+}
+.admin__skill_branch_input > input {
+  height: 100%;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 15px;
+  color: black;
+}
+.admin__adding_new_branch_btn {
+  display: flex;
+  align-items: center;
+}
+.admin__skills_add_new_btn {
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+}
+.admin__skills_open_input_adding_branch {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.admin__skills_add_new_brach_btn {
+  padding-left: 10px;
+  cursor: pointer;
+}
+.admin__action_btn {
+  cursor: pointer;
+}
